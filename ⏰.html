@@ -1,0 +1,178 @@
+<html>
+<head>
+<meta name="viewport"content="width=device-width">
+<style type="text/css">
+body{
+background:white;
+}
+.main{
+height:220px;
+width:220px;
+margin-top:100px;
+margin-left:70px;
+display:flex;
+border-radius:50%;
+background:#ecf0f3;
+box-shadow:5px 5px 5px #cbced1,
+-5px -5px 5px #cbced1;
+}
+.clock{
+margin:auto;
+height:200px;
+width:200px;
+border-radius:50%;
+background:#ecf0f3;
+text-align:center;
+position:relative;
+box-shadow:inset 5px 5px 1px #cbced1,
+inset -5px -5px 1px #cbced1;
+}
+.number{
+position:absolute;
+text-align:center;
+height:100%;
+width:100%;
+transform:rotate(calc(var(--r)*1deg));
+}
+
+.n1{
+--r:30;
+}
+.n2{
+--r:60;
+}
+.n3{
+--r:90
+}
+.n4{
+--r:120;
+}
+.n5{
+--r:150;
+}
+.n6{
+--r:180;
+}
+.n7{
+--r:210;
+}
+.n8{
+--r:240;
+}
+.n9{
+--r:270;
+}
+.n10{
+--r:300;
+}
+.n11{
+--r:330;
+}
+.n12{
+--r:360;
+}
+.a{
+position:absolute;
+width:5px;
+height:40%;
+background:var(--clr);
+left:50%;
+bottom:50%;
+transform-origin:bottom;
+transform:rotate(calc(var(--rt)*1deg));
+}
+.hour{
+border-top-left-radius:50px;
+border-top-right-radius:50px;
+width:4px;
+height:24%;
+z-index:3;
+background:#B80E65;
+}
+.min{
+border-top-left-radius:50px;
+border-top-right-radius:50px;
+width:3px;
+z-index:3;
+height:32%;
+background:#F3C507;
+}
+.sec{
+border-top-left-radius:50px;
+border-top-right-radius:50px;
+z-index:3;
+background:#2A2A72;
+width:2px;
+height:40%;
+}
+.cen{
+position:absolute;
+width:10px;
+height:10px;
+left:48%;
+bottom:47%;
+z-index:3;
+border-radius:50%;
+background:cyan;
+}
+.center{
+height:80px;
+width:80px;
+margin-top:70px;
+margin-left:140px;
+display:flex;
+border-radius:50%;
+background:#fff;
+box-shadow:5px 5px 5px #cbced1,
+-5px -5px 5px #cbced1;
+position:absolute;
+z-index:2;
+}
+</style>
+<script type="text/javascript">
+</script>
+</head>
+<body>
+<div class="center"></div>
+<div class="main">
+<div class="clock">
+
+<div class="a hour"id="hour"></div>
+<div class="a min"id="min"></div>
+<div class="a sec"id="sec"></div>
+<div class="cen"></div>
+<div class="number n1">1</div>
+<div class="number n2">2</div>
+<div class="number n3">3</div>
+<div class="number n4">4</div>
+<div class="number n5">5</div>
+<div class="number n6">6</div>
+<div class="number n7">7</div>
+<div class="number n8">8</div>
+<div class="number n9">9</div>
+<div class="number n10">10</div>
+<div class="number n11">11</div>
+<div class="number n12">12</div>
+</div></div>
+<p id="dis"></p>
+<script type="text/javascript">
+function mom(){
+var min=document.getElementById("min");
+var sec=document.getElementById("sec");
+var hour=document.getElementById("hour");
+var d=new Date();
+hourr=d.getHours();
+minn=d.getMinutes();
+secc=d.getSeconds();
+hrotation=(30*hourr)+(minn/2);
+mrotation=6*minn;
+srotation=6*secc;
+hour.style.transform=`rotate(${hrotation}deg)`;
+min.style.transform=`rotate(${mrotation}deg)`;
+sec.style.transform=`rotate(${srotation}deg)`;
+}
+mom();
+setInterval(mom,1000)
+</script>
+</body>
+</html>
